@@ -6,7 +6,7 @@ CREATE DATABASE farm;
 -- Create tables
 CREATE TABLE users (
     user_name TEXT NOT NULL,
-    user_psd TEXT NOT NULL,
+    user_pwd TEXT NOT NULL,
     user_group TEXT NOT NULL
 );
 
