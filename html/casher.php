@@ -112,8 +112,8 @@
 
 <!-- Footer -->
 <div class="jumbotron text-center" style="margin-bottom:0">
-    <p>©2018 Zili Wang</p>
-  </div>
+  <p>©2018 Zili Wang</p>
+</div>
   
-  </body>
-  </html>
+</body>
+</html>
