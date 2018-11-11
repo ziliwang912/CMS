@@ -44,7 +44,7 @@
     <!-- Casher Login -->
     <div class="col" style="background-color:lavender;">
       <h3 style="text-align: center">Casher Login</h3>
-      <form action="casher.html">
+      <form action="casher.php">
         <div class="form-group">
           <label for="usr">Name:</label>
           <input type="text" class="form-control" id="usr" name="username">
@@ -60,7 +60,7 @@
     <!-- Admin Login -->
     <div class="col" style="background-color:orange;">
       <h3 style="text-align: center">Admin Login</h3>
-      <form action="admin.html">
+      <form action="admin.php">
         <div class="form-group">
           <label for="usr">Name:</label>
           <input type="text" class="form-control" id="usr" name="username">

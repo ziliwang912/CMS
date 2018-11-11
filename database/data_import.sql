@@ -1,20 +1,42 @@
 -- Create database
-DROP DATABASE IF EXISTS produce;
-CREATE DATABASE produce;
-\c produce
+DROP DATABASE IF EXISTS farm;
+CREATE DATABASE farm;
+\c farm
 
 -- Create tables
-CREATE TABLE prices (
-    name TEXT NOT NULL,
-    price MONEY NOT NULL,
-    unit TEXT NOT NULL,
-    organic TEXT NOT NULL
+CREATE TABLE users (
+    user_name TEXT NOT NULL,
+    user_psd TEXT NOT NULL,
+    user_group TEXT NOT NULL
+);
+
+CREATE TABLE customers (
+    cust_name TEXT NOT NULL
+);
+
+CREATE TABLE products (
+    prod_name TEXT NOT NULL,
+    prod_category TEXT NOT NULL,
+    prod_cost MONEY NOT NULL,
+	prod_price MONEY NOT NULL
+);
+
+CREATE TABLE transactions (
+    trans_date DATE NOT NULL,
+    cust_name TEXT NOT NULL,
+    prod_name TEXT NOT NULL,
+	prod_qty NUMERIC NOT NULL,
+	prod_value MONEY NOT NULL
 );
 
 -- Import data
-\COPY prices FROM './prices.csv' WITH (FORMAT csv);
-
-ALTER TABLE prices ADD COLUMN produce_id SERIAL PRIMARY KEY;
+\COPY users FROM 'data/users.csv' WITH (FORMAT csv);
+\COPY customers FROM 'data/customers.csv' WITH (FORMAT csv);
+\COPY products FROM 'data/products.csv' WITH (FORMAT csv);
+\COPY transactions FROM 'data/transactions.csv' WITH (FORMAT csv);
 
 -- Check data
-SELECT * FROM prices LIMIT 10;
+SELECT * FROM users;
+SELECT * FROM customers;
+SELECT * FROM products;
+SELECT * FROM transactions;
