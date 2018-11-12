@@ -1,24 +1,3 @@
-<?php
-$db = pg_connect("host=localhost dbname=farm user=postgres password=123");
-if(isset($_POST['cashierSub']))
-{
-  $userName = $_POST['userName'];
-  $userPwd = $_POST['userPwd'];
-
-  $query = "SELECT * FROM users WHERE user_name='{$userName}' AND user_pwd='{$userPwd}'";
-  $result = pg_query($db,$query);
-
-  if($res=pg_fetch_array($result)) 
-  {
-    echo "<script>alert(\"Login successful!\");</script>";
-  }
-  else
-  {
-    echo "<script>alert(\"Login Failed!\");</script>";
-  }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,7 +43,7 @@ if(isset($_POST['cashierSub']))
   <div class="row">
     <!-- Cashier Login -->
     <div class="col" style="background-color:lavender;">
-      <h3 style="text-align: center">Casher Login</h3>
+      <h3 style="text-align: center">Cashier Login</h3>
       <form action="index.php" method="POST">
         <div class="form-group">
           <label for="usr">User Name:</label>
@@ -77,6 +56,26 @@ if(isset($_POST['cashierSub']))
         <button type="submit" name="cashierSub" class="btn btn-primary">Login</button>
       </form>
     </div>
+    <?php
+    $db = pg_connect("host=localhost dbname=farm user=postgres password=123");
+    if(isset($_POST['cashierSub']))
+    {
+      $userName = $_POST['userName'];
+      $userPwd = $_POST['userPwd'];
+
+      $query = "SELECT * FROM users WHERE user_name='{$userName}' AND user_pwd='{$userPwd}'";
+      $result = pg_query($db,$query);
+
+      if($res=pg_fetch_array($result)) 
+      {
+        echo "Login successful!";
+      }
+      else
+      {
+        echo "Login Failed!";
+      }
+    }
+    ?>
 
     <!-- Admin Login -->
     <div class="col" style="background-color:orange;">
