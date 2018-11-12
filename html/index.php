@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Login</title>
+  <title>Home</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -44,16 +44,16 @@
     <!-- Cashier Login -->
     <div class="col" style="background-color:lavender;">
       <h3 style="text-align: center">Cashier Login</h3>
-      <form action="login.php" method="POST">
+      <form action="" method="POST">
         <div class="form-group">
           <label for="usr">User Name:</label>
-          <input type="text" class="form-control" id="usr" name="userName">
+          <input type="text" class="form-control" id="usr" name="userName" placeholder="Enter user name" required>
         </div>
         <div class="form-group">
           <label for="pwd">Password:</label>
-          <input type="password" class="form-control" id="pwd" name="userPwd">
+          <input type="password" class="form-control" id="pwd" name="userPwd" placeholder="Enter password" required>
         </div>
-        <button type="submit" name="cashierSub" class="btn btn-primary">Login</button>
+        <button type="submit" name="cashierSubmit" class="btn btn-primary">Login</button>
       </form>
     </div>
 
@@ -62,7 +62,7 @@
       <h3 style="text-align: center">Admin Login</h3>
       <form action="login.php">
         <div class="form-group">
-          <label for="usr">Name:</label>
+          <label for="usr">User Name:</label>
           <input type="text" class="form-control" id="usr" name="userName">
         </div>
         <div class="form-group">
@@ -78,7 +78,7 @@
 
 <!-- Footer -->
 <div class="jumbotron text-center" style="margin-bottom:0">
-  <p>©2018 Zili Wang</p>
+  <p>Copyright 2018 Zili Wang</p>
 </div>
 
 </body>
