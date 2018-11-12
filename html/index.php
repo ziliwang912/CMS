@@ -1,3 +1,24 @@
+<?php
+$db = pg_connect("host=localhost dbname=farm user=postgres password=123");
+if(isset($_POST['cashierSub']))
+{
+  $userName = $_POST['userName'];
+  $userPwd = $_POST['userPwd'];
+
+  $query = "SELECT * FROM users WHERE user_name='{$userName}' AND user_pwd='{$userPwd}'";
+  $result = pg_query($db,$query);
+
+  if($res=pg_fetch_array($result)) 
+  {
+    echo "<script>alert(\"Login successful!\");</script>";
+  }
+  else
+  {
+    echo "<script>alert(\"Login Failed!\");</script>";
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,38 +59,38 @@
   <p>Resize this responsive page to see the effect!</p> 
 </div>
 
-<!-- Login Form -->
+<!-- Login Forms -->
 <div class="container">
   <div class="row">
-    <!-- Casher Login -->
+    <!-- Cashier Login -->
     <div class="col" style="background-color:lavender;">
       <h3 style="text-align: center">Casher Login</h3>
-      <form action="login.php" method="POST">
+      <form action="index.php" method="POST">
         <div class="form-group">
           <label for="usr">User Name:</label>
-          <input type="text" class="form-control" id="usr" name="user_name">
+          <input type="text" class="form-control" id="usr" name="userName">
         </div>
         <div class="form-group">
           <label for="pwd">Password:</label>
-          <input type="password" class="form-control" id="pwd" name="user_pwd">
+          <input type="password" class="form-control" id="pwd" name="userPwd">
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" name="cashierSub" class="btn btn-primary">Login</button>
       </form>
     </div>
 
     <!-- Admin Login -->
     <div class="col" style="background-color:orange;">
       <h3 style="text-align: center">Admin Login</h3>
-      <form action="admin.php">
+      <form action="index.php">
         <div class="form-group">
           <label for="usr">Name:</label>
-          <input type="text" class="form-control" id="usr" name="username">
+          <input type="text" class="form-control" id="usr" name="userName">
         </div>
         <div class="form-group">
           <label for="pwd">Password:</label>
-          <input type="password" class="form-control" id="pwd" name="password">
+          <input type="password" class="form-control" id="pwd" name="userPwd">
         </div>
-        <button type="submit" class="btn btn-primary">Sign In</button>
+        <button type="submit" name="adminSub" class="btn btn-primary">Login</button>
       </form>
     </div>
   </div>
