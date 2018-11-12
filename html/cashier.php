@@ -30,6 +30,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Search Transaction</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Logout</a>
       </li>    
     </ul>
   </div>  
