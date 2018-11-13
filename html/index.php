@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Home</title>
+  <title>The Green Farm</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -13,7 +13,7 @@
 
 <!-- Navbar -->
 <nav class="navbar navbar-edefault bg-dark navbar-dark justify-content-right">
-  <a class="navbar-brand" href="#">The Green Farm Sales System</a>
+  <a class="navbar-brand" href="#">The Green Farm</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
