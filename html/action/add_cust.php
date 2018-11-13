@@ -12,7 +12,7 @@ if(isset($_POST['submit'])){
 
 pg_close($conn);
 
-header("location:../index.php");
+header("location:../cashier.php");
 exit();
 
 ?>

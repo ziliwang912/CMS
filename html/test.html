@@ -46,49 +46,44 @@
   </div>
 
   <!-- New Customer -->
-  <div class="container-fluid" style="background-color:lightblue; padding-block-end: 10px;">
+  <div class="container-fluid" style="background-color:lavender; padding-block-end: 10px;">
     <h3 style="text-align: center">New Customer</h3>
-    <form action="action/add_cust.php" method="post">
+    <form action="" method="post">
       <div class="form-group">
-        <label>Customer Name: </label>
-        <input type="text" class="form-control" name="cust_name" placeholder="Enter Customer Name" required>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCust">
+          Add new customer
+        </button>
+        <!-- The Modal -->
+        <div class="modal" id="addCust">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Add New Customer</h4>
+                <button type="button" class="submit" data-dismiss="modal">&times;</button>
+              </div>
+              <!-- Modal body -->
+              <div class="modal-body">
+                <form id="addCust" action="action/add_cust.php" method="post">
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="cust_name" placeholder="Enter Customer Name" required>
+                  </div>
+                  <button type="submit" name="submit" class="btn btn-primary">Add Name</button>
+                </form>
+              </div>
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <button type="submit" name="submit" class="btn btn-primary">Add Name</button>
-    </form>
-  </div>
-
-  <!-- New Product -->
-  <div class="container-fluid" style="background-color: lavender; padding-block-end: 10px;">
-    <h3 style="text-align: center">New Product</h3>
-    <form action="action/add_prod.php" method="post">
-      <div class="form-group">
-        <label>Product Name: </label>
-        <input type="text" class="form-control" name="prod_name" placeholder="Enter Product Name" required>
-      </div>
-      <div class="form-group">
-        <label for="selectCategory">Product Category: </label>
-        <select class="form-control" id="selectCategory", name="prod_category">
-          <option>Fruit</option>
-          <option>Grain</option>
-          <option>Vegetable</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Original Cost (USD): </label>
-        <input type="number" min="0.00" step="0.01" class="form-control" name="prod_cost" placeholder="Enter Original Cost"
-          required>
-      </div>
-      <div class="form-group">
-        <label>Retail Price (USD): </label>
-        <input type="number" min="0.00" step="0.01" class="form-control" name="prod_price" placeholder="Enter Original Cost"
-          required>
-      </div>
-      <button type="submit" name="submit" class="btn btn-primary">Add Product</button>
     </form>
   </div>
 
   <!-- New Transaction -->
-  <div class="container-fluid" style="background-color: lightcyan; padding-block-end: 10px;">
+  <div class="container-fluid" style="background-color:light;">
     <h3 style="text-align: center">New Transaction</h3>
     <form action="action/add_trans.php" method="post">
       <div class="form-group">
