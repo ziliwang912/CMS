@@ -68,9 +68,18 @@
       <div class="form-group">
         <label for="selectCategory">Product Category: </label>
         <select class="form-control" id="selectCategory", name="prod_category">
-          <option>Fruit</option>
-          <option>Grain</option>
-          <option>Vegetable</option>
+          <option>
+            Choose A Category
+          </option>
+          <?php
+            $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
+            $query = "SELECT DISTINCT prod_category FROM products";
+            $result = pg_query($conn,$query);
+            while ($row = pg_fetch_array($result)) {
+              echo "<option value=" .$row['prod_category']. ">" .$row['prod_category']. "</option>";
+            }
+            pg_close($conn);
+          ?>
         </select>
       </div>
       <div class="form-group">
@@ -93,30 +102,44 @@
     <form action="action/add_trans.php" method="post">
       <div class="form-group">
         <label for="selectCustomer">Customer Name: </label>
-        <select class="form-control" id="selectCustomer">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="selectCategory">Product Category: </label>
-        <select class="form-control" id="selectCategory">
-          <option>A</option>
-          <option>B</option>
-          <option>C</option>
+        <select class="form-control" id="selectCustomer" name="cust_name">
+          <option>
+            Choose A Customer
+          </option>
+          <?php
+            $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
+            $query = "SELECT cust_name FROM customers";
+            $result = pg_query($conn,$query);        
+            while ($row = pg_fetch_array($result)) {
+              echo "<option value=" .$row['cust_name']. ">" .$row['cust_name']. "</option>";
+            }
+            pg_close($conn);
+          ?>
         </select>
       </div>
       <div class="form-group">
         <label for="selectProduct">Product Name: </label>
-        <select class="form-control" id="selectProduct">
-          <option>AA</option>
-          <option>BB</option>
-          <option>AC</option>
+        <select class="form-control" id="selectProduct", name="prod_name">
+          <option>
+            Choose A Product
+          </option>
+          <?php
+            $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
+            $query = "SELECT prod_name FROM products";
+            $result = pg_query($conn,$query);
+            while ($row = pg_fetch_array($result)) {
+              echo "<option value=" .$row['prod_name']. ">" .$row['prod_name']. "</option>";
+            }
+            pg_close($conn);
+          ?>
         </select>
       </div>
+      <div class="form-group">
+        <label>Product Quantity (pound): </label>
+        <input type="number" min="0.00" step="0.01" class="form-control" name="prod_qty" placeholder="Enter Product Quantity"
+          required> 
+      </div>
+      <button type="submit" name="submit" class="btn btn-primary">Add Transaction</button>
     </form>
   </div>
 
