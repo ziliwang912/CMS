@@ -1,6 +1,6 @@
 -- Create database
-DROP DATABASE IF EXISTS farm;
-CREATE DATABASE farm;
+--DROP DATABASE IF EXISTS farm;
+--CREATE DATABASE farm;
 \c farm
 
 -- Create tables

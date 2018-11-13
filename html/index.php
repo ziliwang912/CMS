@@ -12,7 +12,7 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-right">
+<nav class="navbar navbar-edefault bg-dark navbar-dark justify-content-right">
   <a class="navbar-brand" href="#">The Green Farm Sales System</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
@@ -35,50 +35,48 @@
 <!-- Jumbotron -->
 <div class="jumbotron text-center" style="margin-bottom:0">
   <h1>The Green Farm Sales System</h1>
-  <p>Resize this responsive page to see the effect!</p> 
 </div>
 
 <!-- Login Forms -->
 <div class="container-fluid">
   <div class="row">
     <!-- Cashier Login -->
-    <div class="col" style="background-color:lavender;">
+    <div class="col" style="background-color:green;">
       <h3 style="text-align: center">Cashier Login</h3>
-      <form action="" method="POST">
+      <form action="action/check_cashier.php" method="post">
         <div class="form-group">
-          <label for="usr">User Name:</label>
-          <input type="text" class="form-control" id="usr" name="userName" placeholder="Enter user name" required>
+          <label>User Name:</label>
+          <input type="text" class="form-control" name="username" placeholder="Enter user name" required>
         </div>
         <div class="form-group">
-          <label for="pwd">Password:</label>
-          <input type="password" class="form-control" id="pwd" name="userPwd" placeholder="Enter password" required>
+          <label>Password:</label>
+          <input type="password" class="form-control" name="password" placeholder="Enter password" required>
         </div>
-        <button type="submit" name="cashierSubmit" class="btn btn-primary">Login</button>
+        <button type="submit" name="submit" class="btn btn-primary">Login</button>
       </form>
     </div>
 
     <!-- Admin Login -->
     <div class="col" style="background-color:orange;">
       <h3 style="text-align: center">Admin Login</h3>
-      <form action="login.php">
+      <form action="action/check_admin.php" method="post">
         <div class="form-group">
-          <label for="usr">User Name:</label>
-          <input type="text" class="form-control" id="usr" name="userName">
+          <label>User Name:</label>
+          <input type="text" class="form-control" name="username" placeholder="Enter user name" required>
         </div>
         <div class="form-group">
-          <label for="pwd">Password:</label>
-          <input type="password" class="form-control" id="pwd" name="userPwd">
+          <label>Password:</label>
+          <input type="password" class="form-control" name="password" placeholder="Enter password" required>
         </div>
-        <button type="submit" name="adminSub" class="btn btn-primary">Login</button>
+        <button type="submit" name="submit" class="btn btn-primary">Login</button>
       </form>
     </div>
   </div>
 </div>
 
-
 <!-- Footer -->
 <div class="jumbotron text-center" style="margin-bottom:0">
-  <p>Copyright 2018 Zili Wang</p>
+  <p>©2018 Zili Wang</p>
 </div>
 
 </body>
