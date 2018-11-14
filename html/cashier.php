@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Cashier Page</title>
+  <title>The Green Farm: Cashier Page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -220,7 +220,7 @@
               <label>Customer Name: </label>
               <input type="text" class="form-control" name="cust_name" placeholder="Enter Customer Name" required>
             </div>
-            <button type="submit" name="submit" class="btn btn-primary">Add Name</button>
+            <button type="submit" name="submit" class="btn btn-primary">Add Customer</button>
           </form><br>
         </div><br>
       </div>

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Cashier Page</title>
+  <title>The Green Farm: Admin Page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -10,8 +10,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <!-- Include datatables -->
-  <script src="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
 </head>
 
 <body>
@@ -26,83 +30,44 @@
     <!-- Nav pills -->
     <ul class="nav nav-pills" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" data-toggle="pill" href="#home">New Transaction</a>
+        <a class="nav-link active" data-toggle="pill" href="#home">Sales Reports</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="pill" href="#menu1">Search Transaction</a>
+        <a class="nav-link" data-toggle="pill" href="#menu1">Export Transactions</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="pill" href="#menu2">New Product</a>
+        <a class="nav-link" data-toggle="pill" href="#menu2">Delete Product</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="pill" href="#menu3">Search Product</a>
+        <a class="nav-link" data-toggle="pill" href="#menu3">Export Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="pill" href="#menu4">New Customer</a>
+        <a class="nav-link" data-toggle="pill" href="#menu4">Delete Customer</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="pill" href="#menu5">Search Customer</a>
+        <a class="nav-link" data-toggle="pill" href="#menu5">Export Customers</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="pill" href="#menu6">Log Out</a>
+        <a class="nav-link" data-toggle="pill" href="#menu6">New Account</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#menu7">Delete Account</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#menu8">Log Out</a>
       </li>
     </ul><br>
 
     <!-- Tab panes -->
     <div class="tab-content" style="border: 1px solid #ddd;">
       <div id="home" class="container tab-pane fade show active"><br>
-        <!-- New Transaction -->
-        <div class="container-fluid" style="background-color: lightcyan; padding-block-end: 10px;">
-          <h3 style="text-align: center"><br>New Transaction</h3>
-          <form action="action/add_trans.php" method="post">
-            <div class="form-group">
-              <label for="selectCustomer">Customer Name: </label>
-              <select class="form-control" id="selectCustomer" name="cust_name">
-                <option>
-                  Choose A Customer
-                </option>
-                <?php
-              $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
-              $query = "SELECT cust_name FROM customers";
-              $result = pg_query($conn,$query);        
-              while ($row = pg_fetch_array($result)) {
-                echo "<option value=" .$row['cust_name']. ">" .$row['cust_name']. "</option>";
-              }
-              pg_close($conn);
-            ?>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="selectProduct">Product Name: </label>
-              <select class="form-control" id="selectProduct" , name="prod_name">
-                <option>
-                  Choose A Product
-                </option>
-                <?php
-              $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
-              $query = "SELECT prod_name FROM products";
-              $result = pg_query($conn,$query);
-              while ($row = pg_fetch_array($result)) {
-                echo "<option value=" .$row['prod_name']. ">" .$row['prod_name']. "</option>";
-              }
-              pg_close($conn);
-            ?>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Product Quantity (pound): </label>
-              <input type="number" min="0.00" step="0.01" class="form-control" name="prod_qty" placeholder="Enter Product Quantity"
-                required>
-            </div>
-            <button type="submit" name="submit" class="btn btn-primary">Add Transaction</button>
-          </form><br>
-        </div><br>
+        <!-- Sales Reports -->
       </div>
 
       <div id="menu1" class="container tab-pane fade"><br>
-        <!-- Search Transactions -->
+        <!-- Export Transactions -->
         <div class="container-fluid" style="background-color: lightcyan; padding-block-end: 10px;">
-          <h3 style="text-align: center"><br>Search Transactions</h3>
+          <h3 style="text-align: center"><br>Export Transactions</h3>
           <table id="trans_table" class="table table-bordered table-striped text-center" style="width: 90%; margin: auto;">
             <div class="table responsive">
               <thead>
@@ -139,72 +104,60 @@
       </div>
 
       <div id="menu2" class="container tab-pane fade"><br>
-        <!-- New Product -->
+        <!-- Delete Product -->
         <div class="container-fluid" style="background-color: lavender; padding-block-end: 10px;">
-          <h3 style="text-align: center"><br>New Product</h3>
-          <form action="action/add_prod.php" method="post">
+          <h3 style="text-align: center"><br>Delete Product</h3>
+          <form action="action/del_prod.php" method="post">
             <div class="form-group">
-              <label>Product Name: </label>
-              <input type="text" class="form-control" name="prod_name" placeholder="Enter Product Name" required>
-            </div>
-            <div class="form-group">
-              <label for="selectCategory">Product Category: </label>
-              <select class="form-control" id="selectCategory" , name="prod_category">
-                <option>
-                  Choose A Category
-                </option>
-                <?php
-              $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
-              $query = "SELECT DISTINCT prod_category FROM products";
-              $result = pg_query($conn,$query);
-              while ($row = pg_fetch_array($result)) {
-                echo "<option value=" .$row['prod_category']. ">" .$row['prod_category']. "</option>";
-              }
-              pg_close($conn);
-            ?>
+              <label>Product To Be Deleted: </label>
+              <select class="form-control" id="selectProduct" , name="prod_name">
+              <option>
+                  Choose A Product
+              </option>
+              <?php
+                $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
+                $query = "SELECT DISTINCT prod_name FROM products";
+                $result = pg_query($conn,$query);
+                while ($row = pg_fetch_array($result)) {
+                  echo "<option value=" .$row['prod_name']. ">" .$row['prod_name']. "</option>";
+                }
+                pg_close($conn);
+              ?>
               </select>
             </div>
-            <div class="form-group">
-              <label>Original Cost (USD): </label>
-              <input type="number" min="0.00" step="0.01" class="form-control" name="prod_cost" placeholder="Enter Original Cost"
-                required>
-            </div>
-            <div class="form-group">
-              <label>Retail Price (USD): </label>
-              <input type="number" min="0.00" step="0.01" class="form-control" name="prod_price" placeholder="Enter Original Cost"
-                required>
-            </div>
-            <button type="submit" name="submit" class="btn btn-primary">Add Product</button>
+            <button type="submit" name="submit" class="btn btn-primary">Delete Product</button>
           </form><br>
         </div><br>
       </div>
 
       <div id="menu3" class="container tab-pane fade"><br>
-        <!-- Search Products -->
+        <!-- Export Products -->
         <div class="container-fluid" style="background-color: lavender; padding-block-end: 10px;">
-          <h3 style="text-align: center"><br>Search Products</h3>
+          <h3 style="text-align: center"><br>Export Products</h3>
           <table id="prod_table" class="table table-bordered table-striped text-center" style="width: 75%; margin: auto;">
             <div class="table responsive">
               <thead>
                 <tr>
                   <th>Product Name</th>
                   <th>Product Category</th>
+                  <th>Product Cost</th>
                   <th>Product Price</th>
                 </tr>
               </thead>
               <tbody>
-                <?php
-            $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
-            $query = "SELECT * FROM products";
-            $result = pg_query($conn,$query); 
-            while ($row=pg_fetch_assoc($result)) {
-                echo "<tr>";
-                echo "<td>".$row['prod_name']. "</td>";
-                echo "<td>".$row['prod_category']. "</td>";
-                echo "<td>".$row['prod_price']. "</td>";
-                echo "</tr>";
-            }
-          ?>
+              <?php
+                $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
+                $query = "SELECT * FROM products";
+                $result = pg_query($conn,$query); 
+                while ($row=pg_fetch_assoc($result)) {
+                  echo "<tr>";
+                  echo "<td>".$row['prod_name']. "</td>";
+                  echo "<td>".$row['prod_category']. "</td>";
+                  echo "<td>".$row['prod_cost']. "</td>";
+                  echo "<td>".$row['prod_price']. "</td>";
+                  echo "</tr>";
+                }
+              ?>
               </tbody>
             </div>
           </table><br>
@@ -212,23 +165,36 @@
       </div>
 
       <div id="menu4" class="container tab-pane fade"><br>
-        <!-- New Customer -->
+        <!-- Delete Customer -->
         <div class="container-fluid" style="background-color:lightblue; padding-block-end: 10px;">
-          <h3 style="text-align: center"><br>New Customer</h3>
-          <form action="action/add_cust.php" method="post">
+          <h3 style="text-align: center"><br>Delete Customer</h3>
+          <form action="action/del_cust.php" method="post">
             <div class="form-group">
-              <label>Customer Name: </label>
-              <input type="text" class="form-control" name="cust_name" placeholder="Enter Customer Name" required>
+              <label>Customer To Be Deleted: </label>
+              <select class="form-control" id="selectProduct" , name="cust_name">
+              <option>
+                  Choose A Customer
+              </option>
+              <?php
+                $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
+                $query = "SELECT DISTINCT cust_name FROM customers";
+                $result = pg_query($conn,$query);
+                while ($row = pg_fetch_array($result)) {
+                  echo "<option value=" .$row['cust_name']. ">" .$row['cust_name']. "</option>";
+                }
+                pg_close($conn);
+              ?>
+              </select>
             </div>
-            <button type="submit" name="submit" class="btn btn-primary">Add Name</button>
+            <button type="submit" name="submit" class="btn btn-primary">Delete Customer</button>
           </form><br>
         </div><br>
       </div>
 
       <div id="menu5" class="container tab-pane fade"><br>
-        <!-- Search Customers -->
+        <!-- Export Customers -->
         <div class="container-fluid" style="background-color: lightblue; padding-block-end: 10px;">
-          <h3 style="text-align: center"><br>Search Customers</h3>
+          <h3 style="text-align: center"><br>Export Customers</h3>
           <table id="cust_table" class="table table-bordered table-striped text-center" style="width: 50%; margin: auto;">
             <div class="table responsive">
               <thead>
@@ -238,15 +204,15 @@
               </thead>
               <tbody>
                 <?php
-            $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
-            $query = "SELECT * FROM customers";
-            $result = pg_query($conn,$query); 
-            while ($row=pg_fetch_assoc($result)) {
-                echo "<tr>";
-                echo "<td>".$row['cust_name']. "</td>";
-                echo "</tr>";
-            }
-          ?>
+                  $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
+                  $query = "SELECT * FROM customers";
+                  $result = pg_query($conn,$query); 
+                  while ($row=pg_fetch_assoc($result)) {
+                      echo "<tr>";
+                      echo "<td>".$row['cust_name']. "</td>";
+                      echo "</tr>";
+                  }
+                ?>
               </tbody>
             </div>
           </table><br>
@@ -254,7 +220,12 @@
       </div>
 
       <div id="menu6" class="container tab-pane fade"><br>
-        <p>Click the button to log out as a cashier :</p>
+      </div>
+      <div id="menu7" class="container tab-pane fade"><br>
+      </div>
+
+      <div id="menu8" class="container tab-pane fade"><br>
+        <p>Click the button to log out as an administrator :</p>
         <!-- Button to Open the Modal -->
         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
           Log Out
@@ -291,10 +262,18 @@
 <!-- Call DataTable -->
 <script>
   $(document).ready(function () {
-    $('#cust_table').DataTable();
-    $('#prod_table').DataTable();
-    $('#trans_table').DataTable();
+    $('#cust_table').DataTable( {
+        dom: 'Bfrtip',
+        buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+    } );
+    $('#prod_table').DataTable( {
+        dom: 'Bfrtip',
+        buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+    } );
+    $('#trans_table').DataTable( {
+        dom: 'Bfrtip',
+        buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+    } );
   });
 </script>
-
 </html>
