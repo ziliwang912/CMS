@@ -5,16 +5,16 @@ $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
 
 /* Delete data */
 if(isset($_POST['submit'])){
-  $cust_name = $_POST['cust_name'];
+  $user_name = $_POST['user_name'];
 
-  pg_query($conn, "DELETE FROM customers WHERE cust_name='$cust_name'");
+  pg_query($conn, "DELETE FROM users WHERE user_name='$user_name'");
 }
 
 pg_close($conn);
 
 /* Redirect to previous location */
 echo "<script>
-alert('Customer deleted.');
+alert('Account deleted.');
 window.location.href='../admin.php';
 </script>";
 ?>

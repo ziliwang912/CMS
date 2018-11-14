@@ -220,8 +220,64 @@
       </div>
 
       <div id="menu6" class="container tab-pane fade"><br>
+        <!-- New Account -->
+        <div class="container-fluid" style="background-color:lightblue; padding-block-end: 10px;">
+          <h3 style="text-align: center"><br>New Account</h3>
+          <form action="action/add_acco.php" method="post">
+            <div class="form-group">
+              <label>Account Name: </label>
+              <input type="text" class="form-control" name="user_name" placeholder="Enter Account Name" required>
+            </div>
+            <div class="form-group">
+              <label>Account Password: </label>
+              <input type="password" class="form-control" name="user_pwd1" placeholder="Enter Password" required>
+            </div>
+            <div class="form-group">
+              <label>Repeat Password: </label>
+              <input type="password" class="form-control" name="user_pwd2" placeholder="Repeat Password" required>
+            </div>
+            <label>Account Type: </label><br>
+            <div class="form-check-inline">
+              <label class="form-check-label" for="radio1">
+                <input type="radio" class="form-check-input" id="radio1" name="user_group" value="administrator" checked>administrator
+              </label>
+            </div>
+            <div class="form-check-inline">
+              <label class="form-check-label" for="radio2">
+                <input type="radio" class="form-check-input" id="radio2" name="user_group" value="cashier" checked>cashier
+              </label>
+            </div><br><br>
+            <button type="submit" name="submit" class="btn btn-primary">Add Account</button>
+          </form><br>
+        </div><br>
       </div>
+
       <div id="menu7" class="container tab-pane fade"><br>
+        <!-- Delete Account -->
+          <div class="container-fluid" style="background-color:lightblue; padding-block-end: 10px;">
+          <h3 style="text-align: center"><br>Delete Account</h3>
+          <form action="action/del_acco.php" method="post">
+            <div class="form-group">
+              <label>Account To Be Deleted: </label>
+              <select class="form-control" id="selectAccount" , name="user_name">
+              <option>
+                  Choose An Account
+              </option>
+              <?php
+                $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
+                $query = "SELECT DISTINCT user_name FROM users";
+                $result = pg_query($conn,$query);
+                while ($row = pg_fetch_array($result)) {
+                  echo "<option value=" .$row['user_name']. ">" .$row['user_name']. "</option>";
+                }
+                pg_close($conn);
+              ?>
+              </select>
+            </div>
+            <button type="submit" name="submit" class="btn btn-primary">Delete Account</button>
+          </form><br>
+        </div><br>
+      </div>
       </div>
 
       <div id="menu8" class="container tab-pane fade"><br>
