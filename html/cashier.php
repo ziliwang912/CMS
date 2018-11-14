@@ -9,6 +9,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <!-- Include datatables -->
+  <script src="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 </head>
 
 <body>
@@ -25,7 +28,13 @@
           <a class="nav-link" href="#">New Customer</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="#">New Product</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="#">New Transaction</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Search Product</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Search Product</a>
@@ -67,7 +76,7 @@
       </div>
       <div class="form-group">
         <label for="selectCategory">Product Category: </label>
-        <select class="form-control" id="selectCategory", name="prod_category">
+        <select class="form-control" id="selectCategory" , name="prod_category">
           <option>
             Choose A Category
           </option>
@@ -119,7 +128,7 @@
       </div>
       <div class="form-group">
         <label for="selectProduct">Product Name: </label>
-        <select class="form-control" id="selectProduct", name="prod_name">
+        <select class="form-control" id="selectProduct" , name="prod_name">
           <option>
             Choose A Product
           </option>
@@ -137,10 +146,103 @@
       <div class="form-group">
         <label>Product Quantity (pound): </label>
         <input type="number" min="0.00" step="0.01" class="form-control" name="prod_qty" placeholder="Enter Product Quantity"
-          required> 
+          required>
       </div>
       <button type="submit" name="submit" class="btn btn-primary">Add Transaction</button>
     </form>
+  </div>
+
+  <!-- Search Customers -->
+  <div class="container-fluid" style="background-color: lightblue; padding-block-end: 10px;">
+    <h3 style="text-align: center">Search Customers</h3>
+    <table id="cust_table" class="table table-bordered table-striped text-center" style="width: 50%; margin: auto;">
+      <div class="table responsive">
+        <thead>
+          <tr>
+            <th>Customer Name</th>
+          </tr>
+        </thead>
+        <tbody>
+        <?php
+          $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
+          $query = "SELECT * FROM customers";
+          $result = pg_query($conn,$query); 
+          while ($row=pg_fetch_assoc($result)) {
+              echo "<tr>";
+              echo "<td>".$row['cust_name']. "</td>";
+              echo "</tr>";
+          }
+        ?> 
+        </tbody>
+      </div>
+    </table> 
+  </div>
+
+  <!-- Search Products -->
+  <div class="container-fluid" style="background-color: lavender; padding-block-end: 10px;">
+    <h3 style="text-align: center">Search Products</h3>
+    <table id="prod_table" class="table table-bordered table-striped text-center" style="width: 75%; margin: auto;">
+      <div class="table responsive">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Product Category</th>
+            <th>Product Price</th>
+          </tr>
+        </thead>
+        <tbody>
+        <?php
+          $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
+          $query = "SELECT * FROM products";
+          $result = pg_query($conn,$query); 
+          while ($row=pg_fetch_assoc($result)) {
+              echo "<tr>";
+              echo "<td>".$row['prod_name']. "</td>";
+              echo "<td>".$row['prod_category']. "</td>";
+              echo "<td>".$row['prod_price']. "</td>";
+              echo "</tr>";
+          }
+        ?> 
+        </tbody>
+      </div>
+    </table> 
+  </div>
+
+  <!-- Search Transactions -->
+  <div class="container-fluid" style="background-color: lightcyan; padding-block-end: 10px;">
+    <h3 style="text-align: center">Search Transactions</h3>
+    <table id="trans_table" class="table table-bordered table-striped text-center" style="width: 90%; margin: auto;">
+      <div class="table responsive">
+        <thead>
+          <tr>
+            <th>Transaction Date</th>
+            <th>Customer Name</th>
+            <th>Product Name</th>
+            <th>Product Quantity</th>
+            <th>Product Value</th>
+          </tr>
+        </thead>
+        <tbody>
+        <?php
+          $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
+          $query = "SELECT * FROM transactions";
+          $result = pg_query($conn,$query); 
+          while ($row=pg_fetch_assoc($result)) {
+              echo "<tr>";
+              echo "<td>".$row['trans_date']. "</td>";
+              echo "<td>".$row['cust_name']. "</td>";
+              echo "<td>".$row['prod_name']. "</td>";
+              echo "<td>".$row['prod_qty']. "</td>";
+              echo "<td>".$row['prod_value']. "</td>";
+              echo "</tr>";
+          }
+        ?> 
+        </tbody>
+      </div>
+    </table>
+    <div class="col-md-12 text-center">
+        <ul class="pagination pagination-lg pager" id="trans_page"></ul>
+    </div>
   </div>
 
   <!-- Footer -->
@@ -149,5 +251,14 @@
   </div>
 
 </body>
+
+<!-- Call DataTable -->
+<script>
+  $(document).ready( function () {
+    $('#cust_table').DataTable();
+    $('#prod_table').DataTable();
+    $('#trans_table').DataTable();
+  } );
+</script>
 
 </html>
