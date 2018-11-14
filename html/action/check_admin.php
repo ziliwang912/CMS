@@ -16,11 +16,27 @@
 
   /* Redirect to different pages depending on checking result */
   if($res=pg_num_rows($result) == 1) {
+    echo "<script>
+    alert('Logged in successfully.');
+    window.location.href='../admin.php';
+    </script>";
+
+/*
+    echo '<script type="text/javascript">alert("Logged in successfully.");</script>';
     header("location:../admin.php");
     exit();
+*/
   } else {
+    echo "<script>
+    alert('Invalid username or password, please try again!');
+    window.location.href='../index.php';
+    </script>";
+
+/*
+    echo '<script type="text/javascript">alert("Invalid username or password, please try again!");</script>';
     header("location:../index.php");
     exit();
+*/
   }
 
 ?>

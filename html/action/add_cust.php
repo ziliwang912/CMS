@@ -12,7 +12,10 @@ if(isset($_POST['submit'])){
 
 pg_close($conn);
 
-header("location:../cashier.php");
-exit();
+/* Redirect to previous location */
+echo "<script>
+alert('New customer added.');
+window.location.href='../cashier.php';
+</script>";
 
 ?>

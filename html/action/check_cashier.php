@@ -16,11 +16,15 @@
 
   /* Redirect to different pages depending on checking result */
   if($res=pg_num_rows($result) == 1) {
-    header("location:../cashier.php");
-    exit();
+    echo "<script>
+    alert('Logged in successfully.');
+    window.location.href='../cashier.php';
+    </script>";
   } else {
-    header("location:../index.php");
-    exit();
+    echo "<script>
+    alert('Invalid username or password, please try again!');
+    window.location.href='../index.php';
+    </script>";
   }
 
 ?>

@@ -17,12 +17,19 @@ if(isset($_POST['submit'])){
     $prod_qty*(SELECT prod_price FROM products WHERE prod_name='$prod_name')
   )");
 
-  $qurry_result=pg_query($conn,"SELECT prod_value FROM transactions ORDER BY trans_date DESC LIMIT 1");
-  $row_result=pg_fetch_row($qurry_result);
+  $query=pg_query($conn,"SELECT * FROM transactions ORDER BY trans_date DESC LIMIT 1");
+  $result=pg_fetch_array($query);
+
+  $prod_value=$result['prod_value'];
+  $message="The total price of the last transaction is: $prod_value";
+
+  /* Redirect to previous location */
+  echo "<script>
+  alert('$message');
+  window.location.href='../cashier.php';
+  </script>";
 }
+
 pg_close($conn);
-
-echo '<script type="text/javascript">alert("Total price is: '.$row_result.'");</script>';
-
 
 ?>
