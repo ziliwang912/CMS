@@ -16,6 +16,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
   <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+  <!-- Include Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 </head>
 
 <body>
@@ -62,6 +67,10 @@
     <div class="tab-content" style="border: 1px solid #ddd;">
       <div id="home" class="container tab-pane fade show active"><br>
         <!-- Sales Reports -->
+
+
+
+        <!-- End here -->
       </div>
 
       <div id="menu1" class="container tab-pane fade"><br>
@@ -221,7 +230,7 @@
 
       <div id="menu6" class="container tab-pane fade"><br>
         <!-- New Account -->
-        <div class="container-fluid" style="background-color:lightblue; padding-block-end: 10px;">
+        <div class="container-fluid" style="background-color:lightsalmon; padding-block-end: 10px;">
           <h3 style="text-align: center"><br>New Account</h3>
           <form action="action/add_acco.php" method="post">
             <div class="form-group">
@@ -254,7 +263,7 @@
 
       <div id="menu7" class="container tab-pane fade"><br>
         <!-- Delete Account -->
-          <div class="container-fluid" style="background-color:lightblue; padding-block-end: 10px;">
+          <div class="container-fluid" style="background-color:lightsalmon; padding-block-end: 10px;">
           <h3 style="text-align: center"><br>Delete Account</h3>
           <form action="action/del_acco.php" method="post">
             <div class="form-group">
@@ -277,7 +286,6 @@
             <button type="submit" name="submit" class="btn btn-primary">Delete Account</button>
           </form><br>
         </div><br>
-      </div>
       </div>
 
       <div id="menu8" class="container tab-pane fade"><br>
