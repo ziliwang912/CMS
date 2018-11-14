@@ -13,7 +13,7 @@
 
 <body>
 
-  <!-- Navbar -->
+  <!-- 
   <nav class="navbar navbar-edefault bg-dark navbar-dark justify-content-right">
     <a class="navbar-brand" href="#">The Green Farm</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -33,6 +33,7 @@
       </ul>
     </div>
   </nav>
+  Navbar -->
 
   <!-- Jumbotron -->
   <div class="jumbotron text-center" style="margin-bottom:0">
@@ -44,7 +45,7 @@
     <div class="row">
       <!-- Cashier Login -->
       <div class="col" style="background-color:green; padding-block-end:10px;">
-        <h3 style="text-align: center">Cashier Login</h3>
+        <h3 style="text-align: center"><br>Cashier Login</h3>
         <form action="action/check_cashier.php" method="post">
           <div class="form-group">
             <label>User Name:</label>
@@ -56,11 +57,12 @@
           </div>
           <button type="submit" name="submit" class="btn btn-primary">Login</button>
         </form>
+        <br>
       </div>
 
       <!-- Admin Login -->
       <div class="col" style="background-color:orange;">
-        <h3 style="text-align: center">Admin Login</h3>
+        <h3 style="text-align: center"><br>Admin Login</h3>
         <form action="action/check_admin.php" method="post">
           <div class="form-group">
             <label>User Name:</label>

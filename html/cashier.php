@@ -15,46 +15,13 @@
 </head>
 
 <body>
-
-  <!-- 
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-right">
-    <a class="navbar-brand" href="#">The Green Farm</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">New Customer</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">New Product</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">New Transaction</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Search Customer</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Search Product</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Search Transaction</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-Navbar -->
-
+  
   <!-- Jumbotron -->
   <div class="jumbotron text-center" style="margin-bottom:0">
     <h1>The Green Farm Sales System</h1>
   </div>
 
+  <br>
   <div class="container-fluid">
     <!-- Nav pills -->
     <ul class="nav nav-pills" role="tablist">
@@ -93,9 +60,8 @@ Navbar -->
       </div>
       <div id="menu1" class="container tab-pane fade"><br>
         <!-- New Customer -->
-        <h3>New Customer</h3>
         <div class="container-fluid" style="background-color:lightblue; padding-block-end: 10px;">
-          <h3 style="text-align: center">New Customer</h3>
+          <h3 style="text-align: center"><br>New Customer</h3>
           <form action="action/add_cust.php" method="post">
             <div class="form-group">
               <label>Customer Name: </label>
@@ -106,10 +72,9 @@ Navbar -->
         </div>
       </div>
       <div id="menu2" class="container tab-pane fade"><br>
-        <h3>New Product</h3>
         <!-- New Product -->
         <div class="container-fluid" style="background-color: lavender; padding-block-end: 10px;">
-          <h3 style="text-align: center">New Product</h3>
+          <h3 style="text-align: center"><br>New Product</h3>
           <form action="action/add_prod.php" method="post">
             <div class="form-group">
               <label>Product Name: </label>
@@ -147,10 +112,9 @@ Navbar -->
         </div>
       </div>
       <div id="menu3" class="container tab-pane fade"><br>
-        <h3>New Transaction</h3>
         <!-- New Transaction -->
         <div class="container-fluid" style="background-color: lightcyan; padding-block-end: 10px;">
-          <h3 style="text-align: center">New Transaction</h3>
+          <h3 style="text-align: center"><br>New Transaction</h3>
           <form action="action/add_trans.php" method="post">
             <div class="form-group">
               <label for="selectCustomer">Customer Name: </label>
@@ -196,10 +160,9 @@ Navbar -->
         </div>
       </div>
       <div id="menu4" class="container tab-pane fade"><br>
-        <h3>New Customers</h3>
         <!-- Search Customers -->
         <div class="container-fluid" style="background-color: lightblue; padding-block-end: 10px;">
-          <h3 style="text-align: center">Search Customers</h3>
+          <h3 style="text-align: center"><br>Search Customers</h3>
           <table id="cust_table" class="table table-bordered table-striped text-center" style="width: 50%; margin: auto;">
             <div class="table responsive">
               <thead>
@@ -224,10 +187,9 @@ Navbar -->
         </div>
       </div>
       <div id="menu5" class="container tab-pane fade"><br>
-        <h3>New Product</h3>
         <!-- Search Products -->
         <div class="container-fluid" style="background-color: lavender; padding-block-end: 10px;">
-          <h3 style="text-align: center">Search Products</h3>
+          <h3 style="text-align: center"><br>Search Products</h3>
           <table id="prod_table" class="table table-bordered table-striped text-center" style="width: 75%; margin: auto;">
             <div class="table responsive">
               <thead>
@@ -256,10 +218,9 @@ Navbar -->
         </div>
       </div>
       <div id="menu6" class="container tab-pane fade"><br>
-        <h3>New Product</h3>
         <!-- Search Transactions -->
         <div class="container-fluid" style="background-color: lightcyan; padding-block-end: 10px;">
-          <h3 style="text-align: center">Search Transactions</h3>
+          <h3 style="text-align: center"><br>Search Transactions</h3>
           <table id="trans_table" class="table table-bordered table-striped text-center" style="width: 90%; margin: auto;">
             <div class="table responsive">
               <thead>
@@ -296,24 +257,12 @@ Navbar -->
       </div>
       <div id="menu7" class="container tab-pane fade"><br>
         <h3>Log Out</h3>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-          aperiam.</p>
+        <p>logout</p>
       </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Footer -->
+    <br>
     <div class="jumbotron text-center" style="margin-bottom:0">
       <p>©2018 Zili Wang</p>
     </div>
