@@ -106,7 +106,7 @@
           if ($result2) {
             $arrData = array(
               "chart" => array(
-                "caption" => "Total Sale Per Day",
+                "caption" => "Sale Per Day",
                 "xAxisName" => "Date",
                 "yAxisName" => "Sale",
                 "showValues" => "0",
