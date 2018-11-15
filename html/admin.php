@@ -108,7 +108,7 @@
               "chart" => array(
                 "caption" => "Total Sale Per Day",
                 "xAxisName" => "Date",
-                "yAxisName" => "Total",
+                "yAxisName" => "Sale",
                 "showValues" => "0",
                 "showhovereffect" => "1",
                 "numberprefix" => "$",
