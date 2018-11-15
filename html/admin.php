@@ -67,7 +67,30 @@
     <div class="tab-content" style="border: 1px solid #ddd;">
       <div id="home" class="container tab-pane fade show active"><br>
         <!-- Sales Reports -->
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-6">
+              <p>Thie is a pie chart...</p>
+              <!-- Pie -->
 
+
+
+
+
+              <!-- Pie -->
+            </div>
+            <div class="col-sm-6">
+              <p>This is a line chart...</p>
+              <!-- Line -->
+
+
+
+
+              
+              <!-- Line -->
+            </div>
+          </div>
+        </div>
 
 
         <!-- End here -->
