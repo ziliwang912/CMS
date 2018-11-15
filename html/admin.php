@@ -106,9 +106,9 @@
           if ($result2) {
             $arrData = array(
               "chart" => array(
-                "caption" => "Sale Per Day",
+                "caption" => "Sales Per Day",
                 "xAxisName" => "Date",
-                "yAxisName" => "Sale",
+                "yAxisName" => "Sales",
                 "showValues" => "0",
                 "showhovereffect" => "1",
                 "numberprefix" => "$",
