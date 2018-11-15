@@ -69,41 +69,86 @@
       <div id="home" class="container tab-pane fade show active"><br>
         <!-- Sales Reports -->
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-6">
-              <p>Thie is a pie chart...</p>
-              <!-- Pie -->
+          <?php
+          include("include/fusioncharts.php");
 
+          $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
+          $query1="SELECT cust_name,SUM(prod_value) AS cust_expense FROM transactions GROUP BY cust_name";
+          $query2="SELECT trans_date, SUM(prod_value)AS daily_sale FROM transactions GROUP BY trans_date ORDER BY trans_date";
+          $result1= pg_query($conn,$query1); 
+          $result2= pg_query($conn,$query2);             
 
+          // Render Pie Chart
+          if ($result1) {
+            $arrData = array(
+              "chart" => array(
+                "caption" => "Percentage Exspense Per Customer",
+                "showValues" => "0",
+                "theme" => "fusion"
+              )
+            );
 
-              <!-- Pie -->
-            </div>
-            <div class="col-sm-6">
-              <p>This is a line chart...</p>
-              <!-- Line -->
+            $arrData["data"] = array();
 
+            while($row = pg_fetch_array($result1)) {
+              array_push($arrData["data"], array(
+                  "label" => $row["cust_name"],
+                  "value" => $row["cust_expense"]
+                  )
+              );
+            }          
 
+            $jsonEncodedData = json_encode($arrData);
+            $pieChart = new FusionCharts("pie2d", "pieChart" , '100%', '400', "pieChartContainer", "json", $jsonEncodedData);
+            $pieChart->render();
+          }
+          
+          // Render Line Chart
+          if ($result2) {
+            $arrData = array(
+              "chart" => array(
+                "caption" => "Total Sale Per Day",
+                "xAxisName" => "Date",
+                "yAxisName" => "Total",
+                "showValues" => "0",
+                "showhovereffect" => "1",
+                "numberprefix" => "$",
+                "lineColor" => "#66CC00",
+                "theme" => "fusion"
+              )
+            );
 
+            $arrData["data"] = array();
 
+            while($row = pg_fetch_array($result2)) {
+              array_push($arrData["data"], array(
+                  "label" => $row["trans_date"],
+                  "value" => $row["daily_sale"]
+                  )
+              );
+            }
+
+            $jsonEncodedData = json_encode($arrData);
+            $lineChart = new FusionCharts("line", "lineChart" , '100%', '400', "lineChartContainer", "json", $jsonEncodedData);
+            $lineChart->render();
+          }        
               
-              <!-- Line -->
-            </div>
-          </div>
+            pg_close($conn);  
+          ?>
+          <div class="col" id="pieChartContainer"></div><br> 
+          <div class="col" id="lineChartContainer"></div><br>
         </div>
-
-
-        <!-- End here -->
       </div>
 
       <div id="menu1" class="container tab-pane fade"><br>
         <!-- Export Transactions -->
         <div class="container-fluid" style="background-color: lightcyan; padding-block-end: 10px;">
           <h3 style="text-align: center"><br>Export Transactions</h3>
-          <table id="trans_table" class="table table-bordered table-striped text-center" style="width: 90%; margin: auto;">
-            <div class="table responsive">
+          <div class="table-responsive">
+            <table id="trans_table" class="table table-bordered table-striped text-center" style="width: 100%; margin: auto;">
               <thead>
                 <tr>
-                  <th>Transaction Date</th>
+                <th>Transaction Date</th>
                   <th>Customer Name</th>
                   <th>Product Name</th>
                   <th>Product Quantity</th>
@@ -111,23 +156,23 @@
                 </tr>
               </thead>
               <tbody>
-                <?php
-          $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
-          $query = "SELECT * FROM transactions";
-          $result = pg_query($conn,$query); 
-          while ($row=pg_fetch_assoc($result)) {
-              echo "<tr>";
-              echo "<td>".$row['trans_date']. "</td>";
-              echo "<td>".$row['cust_name']. "</td>";
-              echo "<td>".$row['prod_name']. "</td>";
-              echo "<td>".$row['prod_qty']. "</td>";
-              echo "<td>".$row['prod_value']. "</td>";
-              echo "</tr>";
-          }
-        ?>
+              <?php
+                $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
+                $query = "SELECT * FROM transactions";
+                $result = pg_query($conn,$query); 
+                while ($row=pg_fetch_assoc($result)) {
+                  echo "<tr>";
+                  echo "<td>".$row['trans_date']. "</td>";
+                  echo "<td>".$row['cust_name']. "</td>";
+                  echo "<td>".$row['prod_name']. "</td>";
+                  echo "<td>".$row['prod_qty']. " lb</td>";
+                  echo "<td>$".$row['prod_value']. "</td>";
+                  echo "</tr>";    
+                }
+              ?>
               </tbody>
-            </div>
-          </table>
+            </table>
+          </div>
           <div class="col-md-12 text-center">
             <ul class="pagination pagination-lg pager" id="trans_page"></ul>
           </div>
@@ -169,10 +214,10 @@
             <div class="table responsive">
               <thead>
                 <tr>
-                  <th>Product Name</th>
-                  <th>Product Category</th>
-                  <th>Product Cost</th>
-                  <th>Product Price</th>
+                  <th>Product</th>
+                  <th>Category</th>
+                  <th>Cost</th>
+                  <th>Price</th>
                 </tr>
               </thead>
               <tbody>
@@ -184,8 +229,8 @@
                   echo "<tr>";
                   echo "<td>".$row['prod_name']. "</td>";
                   echo "<td>".$row['prod_category']. "</td>";
-                  echo "<td>".$row['prod_cost']. "</td>";
-                  echo "<td>".$row['prod_price']. "</td>";
+                  echo "<td>$".$row['prod_cost']. "</td>";
+                  echo "<td>$".$row['prod_price']. "</td>";
                   echo "</tr>";
                 }
               ?>
@@ -202,7 +247,7 @@
           <form action="action/del_cust.php" method="post">
             <div class="form-group">
               <label>Customer To Be Deleted: </label>
-              <select class="form-control" id="selectProduct" , name="cust_name">
+              <select class="form-control" id="selectCust" , name="cust_name">
               <option>
                   Choose A Customer
               </option>

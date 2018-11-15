@@ -1,9 +1,11 @@
 apple,fruit,1.23,1.78
 banana,fruit,0.56,0.98
-grape,fruit,2.02,2.77
-potato,vegetable,0.63,1.01
-kale,vegetable,2.29,2.81
-onion,vegetable,0.72,1.26
-rice,grain,1.11,1.66
-lentil,grain,2.24,3.12
 flour,grain,1.36,1.85
+grape,fruit,2.02,2.77
+kale,vegetable,2.29,2.81
+lentil,grain,2.24,3.12
+onion,vegetable,0.72,1.26
+pear,fruit,1.78,2.65
+potato,vegetable,0.63,1.01
+rice,grain,1.11,1.66
+tomato,vegetable,1.74,2.25

@@ -17,16 +17,16 @@ CREATE TABLE customers (
 CREATE TABLE products (
     prod_name TEXT NOT NULL,
     prod_category TEXT NOT NULL,
-    prod_cost MONEY NOT NULL,
-	prod_price MONEY NOT NULL
+    prod_cost NUMERIC (5, 2) NOT NULL,
+	prod_price NUMERIC (5, 2) NOT NULL
 );
 
 CREATE TABLE transactions (
     trans_date DATE NOT NULL,
     cust_name TEXT NOT NULL,
     prod_name TEXT NOT NULL,
-	prod_qty NUMERIC NOT NULL,
-	prod_value MONEY NOT NULL
+	prod_qty NUMERIC (5, 2) NOT NULL,
+	prod_value NUMERIC (5, 2) NOT NULL
 );
 
 -- Import data

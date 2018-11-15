@@ -102,12 +102,12 @@
       <div id="menu1" class="container tab-pane fade"><br>
         <!-- Search Transactions -->
         <div class="container-fluid" style="background-color: lightcyan; padding-block-end: 10px;">
-          <h3 style="text-align: center"><br>Search Transactions</h3>
-          <table id="trans_table" class="table table-bordered table-striped text-center" style="width: 90%; margin: auto;">
-            <div class="table responsive">
+          <h3 style="text-align: center"><br>Export Transactions</h3>
+          <div class="table-responsive">
+            <table id="trans_table" class="table table-bordered table-striped text-center" style="width: 100%; margin: auto;">
               <thead>
                 <tr>
-                  <th>Transaction Date</th>
+                <th>Transaction Date</th>
                   <th>Customer Name</th>
                   <th>Product Name</th>
                   <th>Product Quantity</th>
@@ -115,23 +115,23 @@
                 </tr>
               </thead>
               <tbody>
-                <?php
-          $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
-          $query = "SELECT * FROM transactions";
-          $result = pg_query($conn,$query); 
-          while ($row=pg_fetch_assoc($result)) {
-              echo "<tr>";
-              echo "<td>".$row['trans_date']. "</td>";
-              echo "<td>".$row['cust_name']. "</td>";
-              echo "<td>".$row['prod_name']. "</td>";
-              echo "<td>".$row['prod_qty']. "</td>";
-              echo "<td>".$row['prod_value']. "</td>";
-              echo "</tr>";
-          }
-        ?>
+              <?php
+                $conn = pg_connect("host=localhost dbname=farm user=postgres password=123");
+                $query = "SELECT * FROM transactions";
+                $result = pg_query($conn,$query); 
+                while ($row=pg_fetch_assoc($result)) {
+                  echo "<tr>";
+                  echo "<td>".$row['trans_date']. "</td>";
+                  echo "<td>".$row['cust_name']. "</td>";
+                  echo "<td>".$row['prod_name']. "</td>";
+                  echo "<td>".$row['prod_qty']. " lb</td>";
+                  echo "<td>$".$row['prod_value']. "</td>";
+                  echo "</tr>";    
+                }
+              ?>
               </tbody>
-            </div>
-          </table>
+            </table>
+          </div>
           <div class="col-md-12 text-center">
             <ul class="pagination pagination-lg pager" id="trans_page"></ul>
           </div>
@@ -165,12 +165,12 @@
               </select>
             </div>
             <div class="form-group">
-              <label>Original Cost (USD): </label>
+              <label>Original Cost: </label>
               <input type="number" min="0.00" step="0.01" class="form-control" name="prod_cost" placeholder="Enter Original Cost"
                 required>
             </div>
             <div class="form-group">
-              <label>Retail Price (USD): </label>
+              <label>Retail Price: </label>
               <input type="number" min="0.00" step="0.01" class="form-control" name="prod_price" placeholder="Enter Original Cost"
                 required>
             </div>
@@ -187,9 +187,9 @@
             <div class="table responsive">
               <thead>
                 <tr>
-                  <th>Product Name</th>
-                  <th>Product Category</th>
-                  <th>Product Price</th>
+                  <th>Product</th>
+                  <th>Category</th>
+                  <th>Price</th>
                 </tr>
               </thead>
               <tbody>
@@ -201,7 +201,7 @@
                 echo "<tr>";
                 echo "<td>".$row['prod_name']. "</td>";
                 echo "<td>".$row['prod_category']. "</td>";
-                echo "<td>".$row['prod_price']. "</td>";
+                echo "<td>$".$row['prod_price']. "</td>";
                 echo "</tr>";
             }
           ?>
