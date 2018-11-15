@@ -27,11 +27,10 @@
 <body>
 
   <!-- Jumbotron -->
-  <div class="jumbotron text-center" style="margin-bottom:0">
+  <div class="jumbotron text-center" style="margin-bottom:0; background-image: url(image/farm.jpg); background-size: cover;">
     <h1>The Green Farm Sales System</h1>
-  </div>
+  </div><br>
 
-  <br>
   <div class="container-fluid">
     <!-- Nav pills -->
     <ul class="nav nav-pills" role="tablist">
@@ -379,14 +378,15 @@
           </div>
         </div>
       </div>
-
     </div>
+  </div><br>
 
-    <!-- Footer -->
-    <br>
-    <div class="jumbotron text-center" style="margin-bottom:0">
-      <p>©2018 Zili Wang</p>
-    </div>
+  <!-- Footer -->
+  <div class="jumbotron text-center" style="margin-bottom:0;">
+    <P class="font-weight-light">CISC 4900 Project: A Contend Management System<br>
+      ©2018 Zili Wang
+    </p>
+  </div>
 
 </body>
 

@@ -17,7 +17,7 @@
 <body>
 
   <!-- Jumbotron -->
-  <div class="jumbotron text-center" style="margin-bottom:0">
+  <div class="jumbotron text-center" style="margin-bottom:0; background-image: url(image/farm.jpg); background-size: cover;">
     <h1>The Green Farm Sales System</h1>
   </div>
 
@@ -183,7 +183,7 @@
         <!-- Search Products -->
         <div class="container-fluid" style="background-color: lavender; padding-block-end: 10px;">
           <h3 style="text-align: center"><br>Search Products</h3>
-          <table id="prod_table" class="table table-bordered table-striped text-center" style="width: 75%; margin: auto;">
+          <table id="prod_table" class="table table-bordered table-striped text-center" style="width: 100%; margin: auto;">
             <div class="table responsive">
               <thead>
                 <tr>
@@ -229,7 +229,7 @@
         <!-- Search Customers -->
         <div class="container-fluid" style="background-color: lightblue; padding-block-end: 10px;">
           <h3 style="text-align: center"><br>Search Customers</h3>
-          <table id="cust_table" class="table table-bordered table-striped text-center" style="width: 50%; margin: auto;">
+          <table id="cust_table" class="table table-bordered table-striped text-center" style="width: 100%; margin: auto;">
             <div class="table responsive">
               <thead>
                 <tr>
@@ -277,14 +277,15 @@
           </div>
         </div>
       </div>
-
     </div>
+  </div><br>
 
-    <!-- Footer -->
-    <br>
-    <div class="jumbotron text-center" style="margin-bottom:0">
-      <p>©2018 Zili Wang</p>
-    </div>
+  <!-- Footer -->
+  <div class="jumbotron text-center" style="margin-bottom:0;">
+    <P class="font-weight-light">CISC 4900 Project: A Contend Management System<br>
+      ©2018 Zili Wang
+    </p>
+  </div>
 
 </body>
 

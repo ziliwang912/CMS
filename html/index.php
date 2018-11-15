@@ -13,30 +13,8 @@
 
 <body>
 
-  <!-- 
-  <nav class="navbar navbar-edefault bg-dark navbar-dark justify-content-right">
-    <a class="navbar-brand" href="#">The Green Farm</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">ABOUT</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">HELP</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">MORE</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  Navbar -->
-
   <!-- Jumbotron -->
-  <div class="jumbotron text-center" style="margin-bottom:0">
+  <div class="jumbotron text-center" style="margin-bottom:0; background-image: url(image/farm.jpg); background-size: cover;">
     <h1>The Green Farm Sales System</h1>
   </div>
 
@@ -44,7 +22,7 @@
   <div class="container-fluid">
     <div class="row">
       <!-- Cashier Login -->
-      <div class="col" style="background-color:green; padding-block-end:10px;">
+      <div class="col" style="background-color:green;">
         <h3 style="text-align: center"><br>Cashier Login</h3>
         <form action="action/check_cashier.php" method="post">
           <div class="form-group">
@@ -79,8 +57,10 @@
   </div>
 
   <!-- Footer -->
-  <div class="jumbotron text-center" style="margin-bottom:0">
-    <p>©2018 Zili Wang</p>
+  <div class="jumbotron text-center" style="margin-bottom:0;">
+    <P class="font-weight-light">CISC 4900 Project: A Contend Management System<br>
+      ©2018 Zili Wang
+    </p>
   </div>
 
 </body>
