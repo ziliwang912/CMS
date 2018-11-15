@@ -14,14 +14,15 @@ if(isset($_POST['submit'])){
     '$cust_name',
     '$prod_name',
     $prod_qty,
-    $prod_qty*(SELECT prod_price FROM products WHERE prod_name='$prod_name')
+    $prod_qty*(SELECT prod_price FROM products WHERE prod_name='$prod_name')    
   )");
 
-  $query=pg_query($conn,"SELECT * FROM transactions ORDER BY trans_date DESC LIMIT 1");
+  $query=pg_query($conn,"SELECT '$prod_qty' * prod_price AS total_price FROM products WHERE prod_name='$prod_name'");
+
   $result=pg_fetch_array($query);
 
-  $prod_value=$result['prod_value'];
-  $message="The total price of the last transaction is: $prod_value";
+  $total_price=$result['total_price'];
+  $message="The total price of the last transaction is: $total_price";
 
   /* Redirect to previous location */
   echo "<script>

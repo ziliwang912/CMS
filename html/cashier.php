@@ -90,7 +90,7 @@
               </select>
             </div>
             <div class="form-group">
-              <label>Product Quantity (pound): </label>
+              <label>Product Quantity (lb): </label>
               <input type="number" min="0.00" step="0.01" class="form-control" name="prod_qty" placeholder="Enter Product Quantity"
                 required>
             </div>
@@ -165,12 +165,12 @@
               </select>
             </div>
             <div class="form-group">
-              <label>Original Cost: </label>
+              <label>Original Cost ($): </label>
               <input type="number" min="0.00" step="0.01" class="form-control" name="prod_cost" placeholder="Enter Original Cost"
                 required>
             </div>
             <div class="form-group">
-              <label>Retail Price: </label>
+              <label>Retail Price ($): </label>
               <input type="number" min="0.00" step="0.01" class="form-control" name="prod_price" placeholder="Enter Original Cost"
                 required>
             </div>

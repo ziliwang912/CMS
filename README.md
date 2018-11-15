@@ -1,2 +1,3 @@
-# CMS
-CISC4900 Porject
+# CISC 4900 Project: 
+A Contend Management System © 2018 Zili Wang
+      
