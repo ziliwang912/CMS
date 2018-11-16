@@ -171,7 +171,7 @@
             </div>
             <div class="form-group">
               <label>Retail Price ($): </label>
-              <input type="number" min="0.00" step="0.01" class="form-control" name="prod_price" placeholder="Enter Original Cost"
+              <input type="number" min="0.00" step="0.01" class="form-control" name="prod_price" placeholder="Enter Retail Price"
                 required>
             </div>
             <button type="submit" name="submit" class="btn btn-primary">Add Product</button>
