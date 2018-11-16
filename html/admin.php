@@ -383,7 +383,7 @@
 
   <!-- Footer -->
   <div class="jumbotron text-center" style="margin-bottom:0;">
-    <P class="font-weight-light">CISC 4900 Project: A Contend Management System<br>
+    <P class="font-weight-light">CISC 4900 Project: A Content Management System<br>
       ©2018 Zili Wang
     </p>
   </div>
