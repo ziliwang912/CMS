@@ -1,3 +1,2 @@
 # CISC 4900 Project
-A Content Management System © 2018 Zili Wang
-      
+A Content Management System using Bootstrap framework on LAPP platform and published on AWS (http://18.188.148.233/).
